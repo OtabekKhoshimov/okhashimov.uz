@@ -1,0 +1,51 @@
+# Yangi blog maqolasi push qilinganda uni Telegram kanalga joylaydi.
+# Kerakli sozlamalar (GitHub → Settings → Secrets and variables → Actions):
+#   secret   TELEGRAM_BOT_TOKEN  — @BotFather bergan token
+#   variable TELEGRAM_CHAT_ID    — kanal manzili, masalan @kanal_nomi
+name: Telegram'ga yangi maqola
+
+on:
+  push:
+    branches: [main]
+    paths: ["blog/*/index.html"]
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Maqola papkasi nomi (masalan: mfaktor)"
+        required: true
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Yangi maqolalarni aniqlash
+        id: find
+        env:
+          EVENT: ${{ github.event_name }}
+          SLUG: ${{ inputs.slug }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            case "$SLUG" in (*[!a-z0-9-]*|"") echo "Noto'g'ri slug: $SLUG"; exit 1;; esac
+            files="blog/$SLUG/index.html"
+          elif [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            files=""
+          else
+            # Faqat yangi qo'shilgan maqolalar (tahrirlanganlar qayta yuborilmaydi)
+            files=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'blog/*/index.html' | tr '\n' ' ')
+          fi
+          echo "Topildi: ${files:-hech narsa}"
+          echo "files=$files" >> "$GITHUB_OUTPUT"
+
+      - name: Telegram'ga yuborish
+        if: steps.find.outputs.files != ''
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          FILES: ${{ steps.find.outputs.files }}
+        run: python3 .github/scripts/telegram_post.py
