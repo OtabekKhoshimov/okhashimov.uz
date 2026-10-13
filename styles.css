@@ -548,7 +548,7 @@ em {
   place-items: center;
   background: transparent;
 }
-.modal__frame img { max-width: 100%; max-height: 100%; border-radius: 12px; object-fit: contain; }
+.modal__frame img { display: block; width: auto; height: auto; max-width: 100%; max-height: min(74vh, 740px); border-radius: 12px; }
 .modal__nav {
   position: absolute;
   top: 50%;
@@ -575,11 +575,78 @@ em {
   font-weight: 600;
 }
 
+/* Certificates */
+.section__head--row { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.section__note { color: var(--ink-soft); max-width: 340px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+.chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font: 600 14px var(--sans);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.chip:hover { border-color: var(--ink-mute); color: var(--ink); }
+.chip.is-active { background: var(--dark); border-color: var(--dark); color: #fff; }
+.chip__count { font-size: 12px; opacity: .55; }
+.certs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cert {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--surface);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: zoom-in;
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: certIn .4s ease both;
+}
+.cert:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -24px rgba(60, 35, 20, .3); }
+.cert__img {
+  display: block;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-tint);
+  padding: 14px;
+}
+.cert__img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(60, 35, 20, .18)); }
+.cert__body { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 18px; border-top: 1px solid var(--line); }
+.cert__tag { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.cert__title { font-weight: 700; line-height: 1.35; }
+.cert__meta { font-size: 13px; color: var(--ink-mute); line-height: 1.4; }
+.certs__more { display: flex; justify-content: center; margin-top: 32px; }
+.certs__more[hidden] { display: none; }
+@keyframes certIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.modal__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -44px;
+  text-align: center;
+  color: rgba(255, 255, 255, .85);
+  font-weight: 600;
+  font-size: 15px;
+}
+.modal__caption[hidden] { display: none; }
+.modal--photo .modal__frame { height: min(74vh, 740px); }
+
 /* Reveal animation */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .cert { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -595,6 +662,8 @@ em {
   .result--wide { flex-direction: column; align-items: stretch; }
   .facts { border-left: 0; border-top: 1px solid var(--line); }
   .videos { grid-template-columns: repeat(2, 1fr); }
+  .certs { grid-template-columns: repeat(3, 1fr); }
+  .section__head--row { flex-direction: column; align-items: flex-start; }
   .feature { grid-template-columns: 220px 1fr; gap: 32px; }
 }
 
@@ -608,6 +677,11 @@ em {
   .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
   .stat__num { font-size: 32px; }
   .videos { grid-template-columns: 1fr; }
+  .certs { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cert__body { padding: 12px 12px 14px; }
+  .cert__title { font-size: 14px; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px 28px; padding: 0 16px 4px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
   .feature { grid-template-columns: 1fr; padding: 20px; gap: 24px; }
   .feature__media { max-height: none; aspect-ratio: 4 / 5; }
   .results { grid-template-columns: 1fr; }

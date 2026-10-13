@@ -75,6 +75,7 @@
         <a href="#results" data-i18n="nav.results">Natijalar</a>
         <a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a>
         <a href="#experience" data-i18n="nav.experience">Tajriba</a>
+        <a href="#certificates" data-i18n="nav.certs">Sertifikatlar</a>
         <a href="#services" data-i18n="nav.services">Xizmatlar</a>
       </nav>
       <div class="nav__actions">
@@ -300,8 +301,26 @@
       </div>
     </section>
 
+    <!-- Certificates -->
+    <section class="section section--tint" id="certificates">
+      <div class="container">
+        <div class="section__head section__head--row reveal">
+          <div>
+            <p class="eyebrow" data-i18n="cert.eyebrow">Sertifikatlar</p>
+            <h2 class="section__title" data-i18n-html="cert.title">Mukofot va <em>sertifikatlar</em></h2>
+          </div>
+          <p class="section__note" data-i18n="cert.note">Maktab yillaridan bugungacha — 26 ta hujjat. Ustiga bosib kattalashtiring.</p>
+        </div>
+        <div class="chips reveal" id="certFilters" role="tablist" aria-label="Filter"></div>
+        <div class="certs" id="certGrid"></div>
+        <div class="certs__more">
+          <button class="btn btn--ghost" type="button" id="certMore" data-i18n="cert.more">Hammasini koʻrsatish</button>
+        </div>
+      </div>
+    </section>
+
     <!-- Services -->
-    <section class="section section--tint" id="services">
+    <section class="section" id="services">
       <div class="container">
         <div class="section__head reveal">
           <div>
@@ -405,6 +424,7 @@
       <button class="modal__close" type="button" data-close aria-label="Yopish">×</button>
       <span class="modal__count" id="modalCount" hidden></span>
       <div class="modal__frame" id="videoFrame"></div>
+      <p class="modal__caption" id="modalCaption" hidden></p>
       <button class="modal__nav modal__nav--prev" type="button" id="modalPrev" aria-label="Oldingi" hidden>‹</button>
       <button class="modal__nav modal__nav--next" type="button" id="modalNext" aria-label="Keyingi" hidden>›</button>
     </div>
