@@ -2,26 +2,30 @@
 const translations = {
   ru: {
     "meta.title": "Отабек Хошимов — медиа-специалист",
-"nav.results": "Результаты",
-"nav.portfolio": "Портфолио",
-"stats.buttons": "серебряные кнопки YouTube",
-"stats.views": "органических просмотров одного видео",
-"stats.students": "привлечённых учеников",
-"res.eyebrow": "Результаты",
-"res.title": "Не слова — <em>цифры</em>",
-"res.r1.label": "подписчиков на YouTube",
-"res.r1.desc": "Вывели YouTube-канал MFaktor на 100 000+ подписчиков и получили серебряную кнопку YouTube.",
-"res.r2.label": "подписчиков на YouTube",
-"res.r2.desc": "Вывели YouTube-канал Registan LC на 100 000+ подписчиков и получили вторую серебряную кнопку.",
-"res.r3.label": "новых учеников за 4 месяца",
-"res.r3.desc": "В частной школе «Туркистон» за 4 месяца управляли маркетинговым бюджетом ~$70 000 и привлекли 450+ учеников.",
-"pf.eyebrow": "Портфолио",
-"pf.title": "Примеры <em>работ</em>",
-"pf.mln": "млн",
-"pf.feature.label": "органических просмотров — без рекламы",
-"pf.likes": "лайков",
-"pf.comments": "комментариев",
-"pf.feature.cta": "Смотреть в Instagram ↗",
+    "nav.results": "Результаты",
+    "nav.portfolio": "Портфолио",
+    "stats.buttons": "серебряные кнопки YouTube",
+    "stats.views": "органических просмотров одного видео",
+    "stats.students": "привлечённых учеников",
+    "res.eyebrow": "Результаты",
+    "res.title": "Не слова — <em>цифры</em>",
+    "res.r1.label": "подписчиков на YouTube",
+    "res.r1.desc": "Вывели YouTube-канал MFaktor на 100 000+ подписчиков и получили серебряную кнопку YouTube.",
+    "res.r2.label": "подписчиков на YouTube",
+    "res.r2.desc": "Вывели YouTube-канал Registan LC на 100 000+ подписчиков и получили вторую серебряную кнопку.",
+    "res.r3.label": "новых учеников за 4 месяца",
+    "res.photo": "фото",
+    "res.r3.f1": "маркетинговый бюджет",
+    "res.r3.f2": "месяца кампании",
+    "res.r3.f3": "цена одного ученика",
+    "res.r3.desc": "В частной школе «Туркистон» за 4 месяца управляли маркетинговым бюджетом ~$70 000 и привлекли 450+ учеников.",
+    "pf.eyebrow": "Портфолио",
+    "pf.title": "Примеры <em>работ</em>",
+    "pf.mln": "млн",
+    "pf.feature.label": "органических просмотров — без рекламы",
+    "pf.likes": "лайков",
+    "pf.comments": "комментариев",
+    "pf.feature.cta": "Смотреть в Instagram ↗",
     "nav.experience": "Опыт",
     "nav.services": "Услуги",
     "nav.contact": "Связаться",
@@ -64,26 +68,30 @@ const translations = {
   },
   en: {
     "meta.title": "Otabek Khoshimov — Media Specialist",
-"nav.results": "Results",
-"nav.portfolio": "Portfolio",
-"stats.buttons": "YouTube Silver Play Buttons",
-"stats.views": "organic views on a single video",
-"stats.students": "students enrolled",
-"res.eyebrow": "Results",
-"res.title": "Not words — <em>numbers</em>",
-"res.r1.label": "YouTube subscribers",
-"res.r1.desc": "Grew the MFaktor YouTube channel past 100,000 subscribers and earned the YouTube Silver Play Button.",
-"res.r2.label": "YouTube subscribers",
-"res.r2.desc": "Grew the Registan LC YouTube channel past 100,000 subscribers and earned a second Silver Play Button.",
-"res.r3.label": "new students in 4 months",
-"res.r3.desc": "At Turkiston Private School, managed a ~$70,000 marketing budget over 4 months and enrolled 450+ students.",
-"pf.eyebrow": "Portfolio",
-"pf.title": "Selected <em>work</em>",
-"pf.mln": "M",
-"pf.feature.label": "organic views — no paid promotion",
-"pf.likes": "likes",
-"pf.comments": "comments",
-"pf.feature.cta": "Watch on Instagram ↗",
+    "nav.results": "Results",
+    "nav.portfolio": "Portfolio",
+    "stats.buttons": "YouTube Silver Play Buttons",
+    "stats.views": "organic views on a single video",
+    "stats.students": "students enrolled",
+    "res.eyebrow": "Results",
+    "res.title": "Not words — <em>numbers</em>",
+    "res.r1.label": "YouTube subscribers",
+    "res.r1.desc": "Grew the MFaktor YouTube channel past 100,000 subscribers and earned the YouTube Silver Play Button.",
+    "res.r2.label": "YouTube subscribers",
+    "res.r2.desc": "Grew the Registan LC YouTube channel past 100,000 subscribers and earned a second Silver Play Button.",
+    "res.r3.label": "new students in 4 months",
+    "res.photo": "photo",
+    "res.r3.f1": "marketing budget",
+    "res.r3.f2": "month campaign",
+    "res.r3.f3": "cost per student",
+    "res.r3.desc": "At Turkiston Private School, managed a ~$70,000 marketing budget over 4 months and enrolled 450+ students.",
+    "pf.eyebrow": "Portfolio",
+    "pf.title": "Selected <em>work</em>",
+    "pf.mln": "M",
+    "pf.feature.label": "organic views — no paid promotion",
+    "pf.likes": "likes",
+    "pf.comments": "comments",
+    "pf.feature.cta": "Watch on Instagram ↗",
     "nav.experience": "Experience",
     "nav.services": "Services",
     "nav.contact": "Contact",
@@ -171,14 +179,37 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// Portfolio videolarini sahifaning o'zida ochish
+// Portfolio videolari va kumush tugma rasmlarini sahifaning o'zida ochish
 const modal = document.getElementById("videoModal");
 const frame = document.getElementById("videoFrame");
+const prevBtn = document.getElementById("modalPrev");
+const nextBtn = document.getElementById("modalNext");
+const counter = document.getElementById("modalCount");
+let gallery = [];
+let galleryIndex = 0;
 
-function closeVideo() {
+function openModal(isPhoto) {
+  modal.classList.toggle("modal--photo", isPhoto);
+  modal.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
   modal.hidden = true;
   frame.innerHTML = "";
+  gallery = [];
   document.body.style.overflow = "";
+}
+
+function showPhoto(index) {
+  galleryIndex = (index + gallery.length) % gallery.length;
+  const img = document.createElement("img");
+  img.src = gallery[galleryIndex];
+  img.alt = "";
+  frame.replaceChildren(img);
+  const many = gallery.length > 1;
+  prevBtn.hidden = nextBtn.hidden = counter.hidden = !many;
+  counter.textContent = `${galleryIndex + 1} / ${gallery.length}`;
 }
 
 document.querySelectorAll("[data-yt]").forEach(link => {
@@ -191,12 +222,25 @@ document.querySelectorAll("[data-yt]").forEach(link => {
     iframe.allowFullscreen = true;
     iframe.title = link.querySelector(".video__title").textContent;
     frame.replaceChildren(iframe);
-    modal.hidden = false;
-    document.body.style.overflow = "hidden";
+    prevBtn.hidden = nextBtn.hidden = counter.hidden = true;
+    openModal(false);
   });
 });
 
-modal.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeVideo));
+document.querySelectorAll("[data-gallery]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    gallery = btn.dataset.gallery.split("|");
+    showPhoto(0);
+    openModal(true);
+  });
+});
+
+prevBtn.addEventListener("click", () => showPhoto(galleryIndex - 1));
+nextBtn.addEventListener("click", () => showPhoto(galleryIndex + 1));
+modal.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeModal));
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && !modal.hidden) closeVideo();
+  if (modal.hidden) return;
+  if (e.key === "Escape") closeModal();
+  if (gallery.length > 1 && e.key === "ArrowLeft") showPhoto(galleryIndex - 1);
+  if (gallery.length > 1 && e.key === "ArrowRight") showPhoto(galleryIndex + 1);
 });

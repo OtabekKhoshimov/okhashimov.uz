@@ -130,31 +130,50 @@
         </div>
 
         <div class="results">
-          <article class="result reveal">
-            <div class="result__top">
-              <img class="result__logo" src="assets/logo-mfaktor.png" alt="MFaktor" loading="lazy">
-              <span class="silver" title="YouTube Silver Play Button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <article class="result result--award reveal">
+            <button class="award" type="button" data-gallery="assets/awards/mfaktor-1.jpg|assets/awards/mfaktor-2.jpg" aria-label="MFaktor kumush tugma rasmlari">
+              <img src="assets/awards/mfaktor-cover.jpg" alt="MFaktor YouTube kumush tugmasi" loading="lazy">
+              <span class="award__chip"><span class="award__dot"></span>Silver Play Button</span>
+              <span class="award__more">+1 <span data-i18n="res.photo">rasm</span></span>
+            </button>
+            <div class="result__body">
+              <div class="result__top">
+                <img class="result__logo" src="assets/logo-mfaktor.png" alt="MFaktor" loading="lazy">
+              </div>
+              <p class="result__num">100K+</p>
+              <p class="result__label" data-i18n="res.r1.label">YouTube obunachi</p>
+              <p class="result__desc" data-i18n="res.r1.desc">MFaktor YouTube kanalini 100 000+ obunachiga olib chiqib, YouTube kumush tugmasini oldik.</p>
             </div>
-            <p class="result__num">100K+</p>
-            <p class="result__label" data-i18n="res.r1.label">YouTube obunachi</p>
-            <p class="result__desc" data-i18n="res.r1.desc">MFaktor YouTube kanalini 100 000+ obunachiga olib chiqib, YouTube kumush tugmasini oldik.</p>
           </article>
-          <article class="result reveal">
-            <div class="result__top">
-              <img class="result__logo" src="assets/logo-registan.png" alt="Registan LC" loading="lazy">
-              <span class="silver" title="YouTube Silver Play Button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <article class="result result--award reveal">
+            <button class="award" type="button" data-gallery="assets/awards/registan-1.jpg|assets/awards/registan-2.jpg" aria-label="Registan LC kumush tugma rasmlari">
+              <img src="assets/awards/registan-cover.jpg" alt="Registan LC YouTube kumush tugmasi" loading="lazy">
+              <span class="award__chip"><span class="award__dot"></span>Silver Play Button</span>
+              <span class="award__more">+1 <span data-i18n="res.photo">rasm</span></span>
+            </button>
+            <div class="result__body">
+              <div class="result__top">
+                <img class="result__logo" src="assets/logo-registan.png" alt="Registan LC" loading="lazy">
+              </div>
+              <p class="result__num">100K+</p>
+              <p class="result__label" data-i18n="res.r2.label">YouTube obunachi</p>
+              <p class="result__desc" data-i18n="res.r2.desc">Registan LC YouTube kanalini 100 000+ obunachiga olib chiqib, ikkinchi kumush tugmani qoʻlga kiritdik.</p>
             </div>
-            <p class="result__num">100K+</p>
-            <p class="result__label" data-i18n="res.r2.label">YouTube obunachi</p>
-            <p class="result__desc" data-i18n="res.r2.desc">Registan LC YouTube kanalini 100 000+ obunachiga olib chiqib, ikkinchi kumush tugmani qoʻlga kiritdik.</p>
           </article>
-          <article class="result reveal">
-            <div class="result__top">
-              <img class="result__logo" src="assets/logo-turkiston.png" alt="Turkistan School" loading="lazy">
+          <article class="result result--wide reveal">
+            <div class="result__body">
+              <div class="result__top">
+                <img class="result__logo" src="assets/logo-turkiston.png" alt="Turkistan School" loading="lazy">
+              </div>
+              <p class="result__num">450+</p>
+              <p class="result__label" data-i18n="res.r3.label">yangi oʻquvchi, 4 oyda</p>
+              <p class="result__desc" data-i18n="res.r3.desc">Turkiston xususiy maktabida 4 oy davomida ~$70 000 marketing byudjetini boshqarib, 450+ oʻquvchi yigʻdik.</p>
             </div>
-            <p class="result__num">450+</p>
-            <p class="result__label" data-i18n="res.r3.label">yangi oʻquvchi, 4 oyda</p>
-            <p class="result__desc" data-i18n="res.r3.desc">Turkiston xususiy maktabida 4 oy davomida ~$70 000 marketing byudjetini boshqarib, 450+ oʻquvchi yigʻdik.</p>
+            <ul class="facts">
+              <li><span class="facts__num">~$70K</span><span class="facts__label" data-i18n="res.r3.f1">marketing byudjeti</span></li>
+              <li><span class="facts__num">4</span><span class="facts__label" data-i18n="res.r3.f2">oylik kampaniya</span></li>
+              <li><span class="facts__num">~$155</span><span class="facts__label" data-i18n="res.r3.f3">1 oʻquvchi narxi</span></li>
+            </ul>
           </article>
         </div>
       </div>
@@ -384,7 +403,10 @@
     <div class="modal__backdrop" data-close></div>
     <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Video">
       <button class="modal__close" type="button" data-close aria-label="Yopish">×</button>
+      <span class="modal__count" id="modalCount" hidden></span>
       <div class="modal__frame" id="videoFrame"></div>
+      <button class="modal__nav modal__nav--prev" type="button" id="modalPrev" aria-label="Oldingi" hidden>‹</button>
+      <button class="modal__nav modal__nav--next" type="button" id="modalNext" aria-label="Keyingi" hidden>›</button>
     </div>
   </div>
 
